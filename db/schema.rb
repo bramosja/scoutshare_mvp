@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_160130) do
   enable_extension "plpgsql"
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
     t.string "city"
     t.string "state"
     t.string "country"
@@ -35,6 +34,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_160130) do
     t.string "description"
     t.boolean "needs_permit"
     t.string "notes"
+    t.string "city"
+    t.string "country"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
