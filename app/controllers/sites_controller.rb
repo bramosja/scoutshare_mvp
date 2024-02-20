@@ -46,6 +46,6 @@ class SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :description, :needs_permit, :notes)
+      params.require(:site).permit(:name, :description, :needs_permit, :notes, :city, :state, :country)
     end
 end
