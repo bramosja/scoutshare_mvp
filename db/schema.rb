@@ -34,11 +34,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_160130) do
     t.string "description"
     t.boolean "needs_permit"
     t.string "notes"
-    t.string "city"
-    t.string "country"
-    t.string "state"
+    t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_sites_on_location_id"
   end
 
   create_table "tags", force: :cascade do |t|

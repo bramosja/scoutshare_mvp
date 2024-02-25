@@ -1,9 +1,10 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Location.create!([
+  {city: "Chattanooga", state: "TN", country: "USA"},
+  {city: "Nashville", state: "TN", country: "USA"}
+])
+Site.create!([
+  {name: "Coolidge Park", description: "Site includes a park, river, and bridge", needs_permit: false, notes: "Parking typically costs. Lots of flexibility with background.", location_id: 1},
+  {name: "Sunset Rock", description: "Has mountain view and a hike", needs_permit: true, notes: "Parking limited to 8 spots.", location_id: 1},
+  {name: "Snoopers Rock", description: "Has mountain view and a hike", needs_permit: false, notes: "Connects to longer trails that go down the mountain.", location_id: 1},
+  {name: "Cloudland Canyon", description: "Has hiking, a mountain view, and forest.", needs_permit: false, notes: nil, location_id: 1}
+])
