@@ -18,7 +18,7 @@ class PermitsController < ApplicationController
     @permit = Permit.new(permit_params)
 
     if @permit.save
-      render json: @permit, status: :created, location: @permit
+      render json: @permit, status: :created
     else
       render json: @permit.errors, status: :unprocessable_entity
     end
