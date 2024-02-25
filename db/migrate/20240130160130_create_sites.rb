@@ -5,9 +5,7 @@ class CreateSites < ActiveRecord::Migration[7.1]
       t.string :description
       t.boolean :needs_permit
       t.string :notes
-      t.string :city
-      t.string :country
-      t.string :state
+      t.belongs_to :location
 
       t.timestamps
     end
