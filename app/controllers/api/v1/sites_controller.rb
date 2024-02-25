@@ -3,7 +3,16 @@ class Api::V1::SitesController < ApplicationController
 
   # GET /sites
   def index
-    @sites = Site.all
+    if params[:location_id].present?
+      search_index(params[:location_id])
+    else
+      @sites = Site.all
+      render json: @sites
+    end
+  end
+
+  def search_index(location_id)
+    @sites = Site.by_location(location_id)
 
     render json: @sites
   end
@@ -46,6 +55,6 @@ class Api::V1::SitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def site_params
-      params.require(:site).permit(:name, :description, :needs_permit, :notes, :city, :state, :country)
+      params.require(:site).permit(:name, :description, :needs_permit, :notes, :location_id)
     end
 end
