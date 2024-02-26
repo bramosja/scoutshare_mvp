@@ -8,3 +8,25 @@ Site.create!([
   {name: "Snoopers Rock", description: "Has mountain view and a hike", needs_permit: false, notes: "Connects to longer trails that go down the mountain.", location_id: 1},
   {name: "Cloudland Canyon", description: "Has hiking, a mountain view, and forest.", needs_permit: false, notes: nil, location_id: 1}
 ])
+Tag.create!([
+              {title: "Waterfall"},
+              {title: "Mountain View"},
+              {title: "Forest"},
+              {title: "Field"},
+              {title: "River"},
+              {title: "Creek"},
+              {title: "Lake"},
+              {title: "Warehouse"},
+              {title: "Park"},
+              {title: "Bridge"}
+            ])
+SiteTag.create!([
+  {site_id: 2, tag_id: 2},
+  {site_id: 3, tag_id: 2},
+  {site_id: 1, tag_id: 9},
+  {site_id: 1, tag_id: 10},
+  {site_id: 1, tag_id: 5},
+  {site_id: 4, tag_id: 2},
+  {site_id: 4, tag_id: 3}
+])
+
