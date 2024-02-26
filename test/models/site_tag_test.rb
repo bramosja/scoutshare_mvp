@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PermitTest < ActiveSupport::TestCase
+class SiteTagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

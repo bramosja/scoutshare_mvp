@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sites
       resources :locations
+      resources :tags
+      resources :site_tags
     end
   end
 
   resources :users
-  resources :permits
-  resources :tags
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
