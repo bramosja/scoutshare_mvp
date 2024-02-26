@@ -3,7 +3,9 @@ class Api::V1::SitesController < ApplicationController
 
   # GET /sites
   def index
+    # generalize to any params present and then narrow
     if params[:location_id].present?
+      # look for and return shoot type and tag in the below as well. Needs to be flexible but param specific.
       search_index(params[:location_id])
     else
       @sites = Site.all
@@ -27,7 +29,9 @@ class Api::V1::SitesController < ApplicationController
     @site = Site.new(site_params)
 
     if @site.save
-      render json: @site, status: :created, location: @site
+      render json: @site, status: :created
+
+    #   TODO: create SiteTag relationship
     else
       render json: @site.errors, status: :unprocessable_entity
     end
@@ -36,6 +40,7 @@ class Api::V1::SitesController < ApplicationController
   # PATCH/PUT /sites/1
   def update
     if @site.update(site_params)
+      # if updating the tags param then we will need to create/destroy SiteTags
       render json: @site
     else
       render json: @site.errors, status: :unprocessable_entity
